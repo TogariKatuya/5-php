@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-15 19:06:44
+/* Smarty version 4.3.2, created on 2023-09-19 17:57:28
   from 'C:\xampp\htdocs\mvc_app\Views\layout\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65042cb4d9d470_11689627',
+  'unifunc' => 'content_65096278d55ee8_51263638',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '36be453bc1d4cbeebcb8027577b33164f02764a8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\layout\\header.tpl',
-      1 => 1694768191,
+      1 => 1695113841,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65042cb4d9d470_11689627 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65096278d55ee8_51263638 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="row">
     <div class="col-md-12 col-xs-10 px-0" style="background-color:lightgray;">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:lightgray;">
@@ -40,7 +40,7 @@ function content_65042cb4d9d470_11689627 (Smarty_Internal_Template $_smarty_tpl)
                         <a class="nav-link" href="#">Drink</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/contact/index">お問合せ</a>
+                        <a class="nav-link" href="/user/contactform">お問合せ</a>
                         </li>
 
                         <form class="d-flex">

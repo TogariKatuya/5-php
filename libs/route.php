@@ -1,8 +1,12 @@
 <?php
+
 function route($path, $httpMethod){
     try {
         list($controller, $method) = explode('/', $path);
         $case = [$method, $httpMethod];
+        
+        // var_dump($controller);
+
         switch ($controller) {
             case 'home':
                 $controllerName = 'HomeController';
@@ -49,20 +53,40 @@ function route($path, $httpMethod){
                     case ['create', 'post']:
                         $methodName = 'create';
                         break;
-                    case ['contacts', 'post']:
-                        $methodName = 'contacts';
+                    case ['contactform','get'];
+                        $methodName = 'contactform';
+                        break;
+                    case ['contactform','get'];
+                        $methodName = 'contactform';
+                        break;
+                    case ['contact-views','get'];
+                        $methodName = 'Validation';
+                        break;
+                    case ['contact-complete','post'];
+                        $methodName = 'Complete';
                         break;
                 }
+            
                 break;
+            
 
             default:
+                
                 $controllerName = '';
                 $methodName = '';
         }
+        
+        // var_dump($controllerName);
+        // var_dump($methodName);
+        // var_dump($controller);
+        // var_dump($method);
+        // var_dump($httpMethod);
+
         require_once (ROOT_PATH."Controllers/{$controllerName}.php");
 
         $obj = new $controllerName();
         $obj->$methodName();
+        
 
     } catch (Throwable $e) {
         "<pre>";

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-19 11:18:42
+/* Smarty version 4.3.2, created on 2023-09-20 11:30:03
   from 'C:\xampp\htdocs\mvc_app\Views\home\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6509050257aab8_30728780',
+  'unifunc' => 'content_650a592b481ce6_09226290',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ab11caf61e2950c6a601d1c940e8acf1233b1519' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\home\\index.tpl',
-      1 => 1695089917,
+      1 => 1695176923,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:layout/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6509050257aab8_30728780 (Smarty_Internal_Template $_smarty_tpl) {
+function content_650a592b481ce6_09226290 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +39,9 @@ function content_6509050257aab8_30728780 (Smarty_Internal_Template $_smarty_tpl)
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <?php echo '<script'; ?>
  defer src="../js/index.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ defer src="../js/validation.js"><?php echo '</script'; ?>
 >
     
 </head>

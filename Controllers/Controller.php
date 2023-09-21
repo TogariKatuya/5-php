@@ -143,4 +143,5 @@ class Controller
         header('Location: /');
         exit();
     }
+
 }
