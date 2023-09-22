@@ -1,3 +1,4 @@
+
 <?php
 define('ROOT_PATH', str_replace('public', '', $_SERVER['DOCUMENT_ROOT']));
 require_once(ROOT_PATH.'libs/Smarty.class.php');
@@ -21,3 +22,5 @@ if (mb_substr($parse['path'], -1) === '/') {
 // .htaccess経由で様々なURLでこのページが読まれるためURLに書かれている文字列を
 // route()関数に値を渡している。
 route($path, $method);
+
+?>

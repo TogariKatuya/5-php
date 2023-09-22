@@ -2,6 +2,7 @@ window.onload = function(){
     /*各画面オブジェクト*/
     const btnSubmit = document.getElementById('btnSubmit');
     const inputName = document.getElementById('inputName');
+    const inputKana = document.getElementById('inputKana');
     const inpuinputTeltAge = document.getElementById('inputTel');
     const inputMail = document.getElementById('inputMail');
     const inputContact = document.getElementById('inputContact');
@@ -15,6 +16,9 @@ window.onload = function(){
         /*入力値チェック*/
         if(inputName.value ==""){
             message.push("氏名が未入力です。");
+        }
+        if(inputKana.value ==""){
+            message.push("フリガナが未入力です。");
         }
         if(inputTel.value==""){
             message.push("電話番号が未入力です。");
@@ -33,7 +37,7 @@ window.onload = function(){
             return;
         }else{
             alert('入力チェックOK');
-            location.href="/user/contact-views";      
+            location.href="/contacts/contact-confirmation";      
         }
     });
 };

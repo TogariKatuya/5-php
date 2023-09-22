@@ -13,4 +13,10 @@ form-item{
     background: #FFEFD5;
     color: #5e5e5e;
     font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+    text-align: center;
+}
+form-wrapper{
+    width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
 }

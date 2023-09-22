@@ -6,6 +6,8 @@ function route($path, $httpMethod){
         $case = [$method, $httpMethod];
         
         // var_dump($controller);
+        // var_dump($method);
+        // var_dump($httpMethod);
 
         switch ($controller) {
             case 'home':
@@ -55,20 +57,29 @@ function route($path, $httpMethod){
                         break;
                     case ['contactform','get'];
                         $methodName = 'contactform';
-                        break;
-                    case ['contactform','get'];
-                        $methodName = 'contactform';
-                        break;
-                    case ['contact-views','get'];
-                        $methodName = 'Validation';
-                        break;
-                    case ['contact-complete','post'];
-                        $methodName = 'Complete';
-                        break;
+                        break;                
                 }
-            
                 break;
-            
+
+                case 'contacts':
+                    $controllerName = 'ContactController';
+                    
+                    switch ($case) {
+                        case ['contactform','get'];
+                            $methodName = 'contactform';
+                            break;
+                        case ['contact-confirmation', 'get']:
+                            $methodName = 'confirmation';  
+                            break;
+                        case ['contact-complete','post'];
+                            $methodName = 'Complete';
+                            break;
+                        default:
+                            $controllerName = '';
+                            $methodName = '';
+                    }
+                break;
+                
 
             default:
                 
