@@ -7,7 +7,7 @@ function route($path, $httpMethod){
         
         // var_dump($controller);
         // var_dump($method);
-        // var_dump($httpMethod);
+        // var_dump($case);
 
         switch ($controller) {
             case 'home':
@@ -63,10 +63,16 @@ function route($path, $httpMethod){
 
                 case 'contacts':
                     $controllerName = 'ContactController';
-                    
+                    // echo'AAAAAAAAAAAAAAa';
                     switch ($case) {
                         case ['contactform','get'];
                             $methodName = 'contactform';
+                            break;
+                        case ['contactform','post'];
+                            $methodName = 'contactform';
+                            break;
+                        case ['contact-confirmation', 'post']:
+                            $methodName = 'confirmation';  
                             break;
                         case ['contact-confirmation', 'get']:
                             $methodName = 'confirmation';  
@@ -74,11 +80,25 @@ function route($path, $httpMethod){
                         case ['contact-complete','post'];
                             $methodName = 'Complete';
                             break;
+                        case ['contact-complete','get'];
+                            $methodName = 'Complete';
+                            break;
+                        case ['contactform','post'];
+                            $methodName = 'contactform';
+                            break;
+                        case ['update','get'];
+                            $methodName = 'update';
+                            break;    
+                        case ['update','post'];
+                            $methodName = 'update';
+                            break;   
                         default:
                             $controllerName = '';
                             $methodName = '';
                     }
                 break;
+
+                
                 
 
             default:
