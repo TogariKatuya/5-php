@@ -49,15 +49,13 @@ window.onload = function(){
         }
         
         if(message.length > 0){
-            // document.getElementById('my-action').addEventListener('click', function(event) {
-          
-            //     console.log('リンクのデフォルトの動作をキャンセルしました');
-            // });
+            
             
             alert(message);
             // location.href="/contacts/contactform";  
             return;
         }else{
+            
             alert('入力チェックOK');
             form.submit();
             // location.href="/contacts/contact-confirmation";    

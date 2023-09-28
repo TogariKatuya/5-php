@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-27 11:10:00
+/* Smarty version 4.3.2, created on 2023-09-28 16:25:25
   from 'C:\xampp\htdocs\mvc_app\Views\contacts\contact-confirmation.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65138ef8e100e5_66639593',
+  'unifunc' => 'content_65152a65c2a694_21362316',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '383710efb5439d37d93a66faf419262f61e706dc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contacts\\contact-confirmation.tpl',
-      1 => 1695779353,
+      1 => 1695885922,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65138ef8e100e5_66639593 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65152a65c2a694_21362316 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>

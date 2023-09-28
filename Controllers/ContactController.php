@@ -76,32 +76,31 @@ class ContactController extends Controller
                 if (empty($Data['name'])) {
                     $errorMessages['name'] = '氏名を入力してください。';
                     echo(2);
-                    
-                    return;
+                 
                 }
 
                 if (empty($Data['kana'])) {
                     $errorMessages['kana'] = 'ふりがなを入力してください。';
                     echo(3);
-                    return;
+                    
                 }
 
                 if (empty($Data['email'])) {
                     $errorMessages['email'] = 'メールアドレスを入力してください。';
                     echo(4);
-                    return;
+                   
                 }
 
                 if (empty($Data['tel'])) {
                     $errorMessages['tel'] = '電話番号を入力してください';
                     echo(5);
-                    return;
+                    
                 }
 
                 if (empty($Data['text'])) {
                     $errorMessages['text'] = 'お問い合わせ内容を入力してください';
                     echo(6);
-                    return;
+                    
                 }
                 // var_dump($errorMessages);
                 if (!empty($errorMessages)) {
@@ -141,28 +140,39 @@ class ContactController extends Controller
     public function contactform(){
         // var_dump($post);
         
-        // CSRFトークンを生成
-        $csrf_token = '';
-        $csrf_token = bin2hex(random_bytes(32));
-        // セッションにCSRFトークンを格納
-        $_SESSION['csrf_token'] = $csrf_token;
-        // 生成したトークンをセッションに保存します
-        $_SESSION['csrf_token'] = $csrf_token;
-        // var_dump($csrf_token);
+        // // CSRFトークンを生成
+        // $csrf_token = '';
+        // $csrf_token = bin2hex(random_bytes(32));
+        // // セッションにCSRFトークンを格納
+        // $_SESSION['csrf_token'] = $csrf_token;
+        // // 生成したトークンをセッションに保存します
+        // $_SESSION['csrf_token'] = $csrf_token;
+        // // var_dump($csrf_token);
  
             $Contact = new Contact;
             $record = $Contact->index();
         if (!empty($_SESSION['post'])){
             $post = $_SESSION['post'];
+            $post = $this->escapeFormData($post);
             $this->view('contacts/contactform',['post' => $post,'posts' => $record]);
-            // var_dump($record);
-            if (isset($_POST['update'])) {
-                echo'AAAAAAA';
-                $_SESSION['post'] = $post; // 現在のデータをセッションに保存
-                header('Location: /contacts/update');
-            }
+            // // var_dump($record);
+            // if (isset($_POST['update'])) {
+            //     $post = $this->escapeFormData($_POST);
+            //     // echo'AAAAAAA';
+            //     $_SESSION['post'] = $post; // 現在のデータをセッションに保存
+            //     header('Location: /contacts/update');
+            // }
         }else{
-            $this->view('contacts/contactform',['posts' => $record,'csrf_token'=>$csrf_token]);
+            $this->view('contacts/contactform',['posts' => $record]);
+        }
+    }
+
+    private function escapeFormData($data){
+        if (is_array($data)) {
+            return array_map([$this, 'escapeFormData'], $data);
+            
+        } else {
+            return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
         }
     }
 
@@ -181,10 +191,8 @@ class ContactController extends Controller
     }
 
     public function update(){
-
-        // if(isset($_POST['id'])) { 
-            // $product = $_POST['id'];
-                // }
+        
+        
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
             // =============================================
@@ -204,22 +212,83 @@ class ContactController extends Controller
             // var_dump($rowData);
             $this->view('contacts/update', ['rowData' => $rowData]);
         } 
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // POSTリクエストでデータを更新する処理
-            //  var_dump($contactId);  
-            $contactId = $_POST['id'];
-            $name = $_POST['name'];
-            $kana = $_POST['kana'];
-            $email = $_POST['email'];
-            $tel = $_POST['tel'];
-            $text = $_POST['text'];
-            // var_dump($text);
-            $contact = new Contact;
-            $result = $contact->update($contactId, $name, $kana, $email, $tel, $text);
-          
-            header('Location: /contacts/contactform');
-            exit;
+            //  var_dump($contactId); 
+            // echo'AAAAA';
+            // var_dump( $_POST);
+            // if (isset($_POST['btnSubmit'])) {
+                $contactId = $_POST['id'];
+                $name = $_POST['name'];
+                $kana = $_POST['kana'];
+                $email = $_POST['email'];
+                $tel = $_POST['tel'];
+                $text = $_POST['text'];
+                // var_dump($text);
+                $errors = array();
             
+                // 氏名のバリデーション
+                if (empty($name)) {
+                    $errors[] = '氏名を入力してください。';
+                } elseif (mb_strlen($name, 'UTF-8') > 10) {
+                    $errors[] = '氏名は10文字以内で入力してください。';
+                }
+                
+                // フリガナのバリデーション
+                if (empty($kana)) {
+                    $errors[] = 'フリガナを入力してください。';
+                } elseif (mb_strlen($kana, 'UTF-8') > 10) {
+                    $errors[] = 'フリガナは10文字以内で入力してください。';
+                }
+                
+                // 電話番号のバリデーション (数字かどうかをチェック)
+                if (!empty($tel) && !preg_match('/^[0-9]+$/', $tel)) {
+                    $errors[] = '電話番号は数字のみで入力してください。';
+                }
+                
+                // メールアドレスのバリデーション
+                if (empty($email)) {
+                    $errors[] = 'メールアドレスを入力してください。';
+                } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $errors[] = '有効なメールアドレスを入力してください。';
+                }
+                
+                // お問い合わせ内容のバリデーション
+                if (empty($text)) {
+                    $errors[] = 'お問い合わせ内容を入力してください。';
+                }
+                
+                // エラーがある場合はエラーメッセージを表示して処理を中断
+                if (!empty($errors)) {
+                    foreach ($errors as $error) {
+                        // var_dump($_POST);
+                        
+                        $_SESSION['rowData'] = $_POST;
+                        $contact = new Contact;
+                        $rowData = $contact->getContactData($contactId);
+                        // var_dump($rowData);
+                        $this->view('contacts/update', ['rowData' => $rowData]);
+                        // $this->view('contacts/update',['rowData' => $_POST]);
+                        $_SESSION['errorMessages'] = $errors;
+                    }
+                
+                }else{
+            
+                // バリデーションが成功した場合にデータを更新
+                $contact = new Contact;
+                $result = $contact->update($contactId, $name, $kana, $email, $tel, $text);
+                
+                header('Location: /contacts/contactform');
+                exit;
+                }
+            // }   
+        
+            // if (isset($_POST['btn_back'])) {
+            //     $_SESSION['post'] = $Data; // 現在のデータをセッションに保存
+            //     header('Location: /contacts/contactform');
+            //     return;   
+            // }
         }
     
        

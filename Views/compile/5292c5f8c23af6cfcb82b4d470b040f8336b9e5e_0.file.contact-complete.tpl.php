@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-20 11:29:58
+/* Smarty version 4.3.2, created on 2023-09-28 12:34:11
   from 'C:\xampp\htdocs\mvc_app\Views\contacts\contact-complete.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_650a5926ebbbf3_09523647',
+  'unifunc' => 'content_6514f433456300_42509653',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5292c5f8c23af6cfcb82b4d470b040f8336b9e5e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contacts\\contact-complete.tpl',
-      1 => 1695176989,
+      1 => 1695872026,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_650a5926ebbbf3_09523647 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6514f433456300_42509653 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>

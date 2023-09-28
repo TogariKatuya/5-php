@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-28 12:18:10
+/* Smarty version 4.3.2, created on 2023-09-28 14:50:15
   from 'C:\xampp\htdocs\mvc_app\Views\contacts\contactform.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6514f07253cde8_74551478',
+  'unifunc' => 'content_651514174dac95_27440153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6a390d4e68138316320aee82adf976f87aa42dbf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contacts\\contactform.tpl',
-      1 => 1695871087,
+      1 => 1695879829,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6514f07253cde8_74551478 (Smarty_Internal_Template $_smarty_tpl) {
+function content_651514174dac95_27440153 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +41,7 @@ function content_6514f07253cde8_74551478 (Smarty_Internal_Template $_smarty_tpl)
             <div class="col-lg-6 mx-auto col-md-8">
                 <h2 class="mb-4">お問い合わせ</h2>
                 <form action="/contacts/contact-confirmation" id='my-action' method="post" class="bg-white p-3 rounded mb-5">
-                    <input type="text" name="csrf_token" method="csrf_token" value="<?php echo $_smarty_tpl->tpl_vars['csrf_token']->value;?>
+                    <input type="hidden" name="csrf_token" method="csrf_token" value="<?php echo $_smarty_tpl->tpl_vars['csrf_token']->value;?>
 ">
                     <div class="form-group">
                         <label form="name">名前</label>
