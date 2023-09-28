@@ -14,6 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 mx-auto col-md-8">
                 <h2 class="mb-4">更新画面</h2>
+                
                 <form action="/contacts/update" method="post" class="bg-white p-3 rounded mb-5">
                     <div class="form-group">
                         <label for="name">名前</label>

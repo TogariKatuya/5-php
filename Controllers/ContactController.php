@@ -18,15 +18,18 @@ class ContactController extends Controller
             die('このページへの直接アクセスは禁止されています。');
             header('Location: /contacts/contactform');
         }
-        // if ( $_SESSION['token'] !== $_REQUEST['token'] ) {
-        //     var_dump($_SESSION['token']);
-        //     var_dump($_REQUEST['token']);
-        //     echo "トークン不一致エラー";
-        //     die();
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //     $receivedToken = $_POST['csrf_token'];
+        //     // セッション内のCSRFトークンをコンソールに表示
+        //     echo 'セッション内のCSRFトークン: ' . $_SESSION['csrf_token'] . PHP_EOL;
+        //     // // フォームデータ内のトークンをコンソールに表示
+        //     // echo 'フォームデータ内のCSRFトークン: ' . $receivedToken . PHP_EOL;
+
+        //     if (!isset($_SESSION['csrf_token']) || $receivedToken !== $_SESSION['csrf_token']) {
+        //         die('CSRF攻撃の可能性があるため、処理を中止しました。');
+        //     }
         // }
-
-
-        // var_dump ($_POST);
+       
         
         $this->view('contacts/contact-confirmation',['post' => $Data]);
         $err = false;
@@ -36,6 +39,7 @@ class ContactController extends Controller
         $inputTel = ($Data['tel']);
         $inputMail = ($Data['email']);
         $inputContact = ($Data['text']);
+        // 確認用
         // var_dump($inputName);
         // var_dump($inputKana);
         // var_dump($inputTel);
@@ -131,24 +135,25 @@ class ContactController extends Controller
             header('Location: /contacts/contactform');
             return;   
         }
-        
     }
+    
     
     public function contactform(){
         // var_dump($post);
-
-       
         
-
+        // CSRFトークンを生成
+        $csrf_token = '';
+        $csrf_token = bin2hex(random_bytes(32));
+        // セッションにCSRFトークンを格納
+        $_SESSION['csrf_token'] = $csrf_token;
+        // 生成したトークンをセッションに保存します
+        $_SESSION['csrf_token'] = $csrf_token;
+        // var_dump($csrf_token);
+ 
             $Contact = new Contact;
             $record = $Contact->index();
         if (!empty($_SESSION['post'])){
-            // セッションからデータを取得
             $post = $_SESSION['post'];
-            $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(24));
-            $token = $_SESSION['token'];
-            // var_dump($record);
-
             $this->view('contacts/contactform',['post' => $post,'posts' => $record]);
             // var_dump($record);
             if (isset($_POST['update'])) {
@@ -157,7 +162,7 @@ class ContactController extends Controller
                 header('Location: /contacts/update');
             }
         }else{
-            $this->view('contacts/contactform',['posts' => $record]);
+            $this->view('contacts/contactform',['posts' => $record,'csrf_token'=>$csrf_token]);
         }
     }
 
@@ -221,16 +226,18 @@ class ContactController extends Controller
     }
 
     public function delete(){
-        $contactId = $_SESSION['auth'] ?? false;
-        if($userId === false){
-            header('Location: /');
-            exit();
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            // POSTリクエストで削除を実行する処理
+            $contactId = $_GET['id'];
+            
+            $contact = new Contact;
+            $result = $contact->deleteContact($contactId);
+    
+            header('Location: /contacts/contactform');
+            exit;
+            
         }
-        $contact = new Contact;
-        $contact->deleteContact($contactId);
-        $_SESSION['auth'] = false;
-        header('Location: /contacts/contactform');
-        exit();
     }
     
 }

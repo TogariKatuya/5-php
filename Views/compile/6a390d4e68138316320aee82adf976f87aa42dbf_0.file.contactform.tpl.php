@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-27 18:33:48
+/* Smarty version 4.3.2, created on 2023-09-28 12:18:10
   from 'C:\xampp\htdocs\mvc_app\Views\contacts\contactform.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6513f6fc910e42_28363151',
+  'unifunc' => 'content_6514f07253cde8_74551478',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6a390d4e68138316320aee82adf976f87aa42dbf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contacts\\contactform.tpl',
-      1 => 1695807186,
+      1 => 1695871087,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6513f6fc910e42_28363151 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6514f07253cde8_74551478 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +41,8 @@ function content_6513f6fc910e42_28363151 (Smarty_Internal_Template $_smarty_tpl)
             <div class="col-lg-6 mx-auto col-md-8">
                 <h2 class="mb-4">お問い合わせ</h2>
                 <form action="/contacts/contact-confirmation" id='my-action' method="post" class="bg-white p-3 rounded mb-5">
+                    <input type="text" name="csrf_token" method="csrf_token" value="<?php echo $_smarty_tpl->tpl_vars['csrf_token']->value;?>
+">
                     <div class="form-group">
                         <label form="name">名前</label>
                         <input type="text" class="form-control" name="name" id="inputName" placeholder="テスト太郎" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['post']->value['name'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
@@ -67,8 +69,7 @@ function content_6513f6fc910e42_28363151 (Smarty_Internal_Template $_smarty_tpl)
 ">
                     </div>
                     <div>
-                        <input type="hidden" name="token" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['token']->value['token'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
-"></input>
+                        
                     </div>
                     <div action='UserController.php' method="post">
                         <button type='submit' class='submit' id="btnSubmit">内容確認</button>
@@ -103,8 +104,8 @@ $_smarty_tpl->tpl_vars['data']->do_else = false;
 </td>
                                 <td> <a href="/contacts/update?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['id'];?>
 " class="button" name='update'>編集</a></td>
-                                <td> <a href="/contacts/delete?id=<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
-" class="button" onclick="return confirm('本当に削除しますか?')">削除</a></td>
+                                <td> <a href="/contacts/delete?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['id'];?>
+" class="button" name='delete' onclick="return confirm('本当に削除しますか?')">削除</a></td>
                             </tr>
                         <?php
 }

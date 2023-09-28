@@ -16,6 +16,7 @@
             <div class="col-lg-6 mx-auto col-md-8">
                 <h2 class="mb-4">お問い合わせ</h2>
                 <form action="/contacts/contact-confirmation" id='my-action' method="post" class="bg-white p-3 rounded mb-5">
+                    <input type="hidden" name="csrf_token" method="csrf_token" value="{$csrf_token}">
                     <div class="form-group">
                         <label form="name">名前</label>
                         <input type="text" class="form-control" name="name" id="inputName" placeholder="テスト太郎" value="{$post['name']|default:''}">
@@ -37,7 +38,7 @@
                         <input type="text" cols='40' rows='8' class="form-control" name="text" id="inputContact" placeholder="お問い合わせ" value="{$post['text']|default:''}">
                     </div>
                     <div>
-                        <input type="hidden" name="token" value="{$token['token']|default:''}"></input>
+                        
                     </div>
                     <div action='UserController.php' method="post">
                         <button type='submit' class='submit' id="btnSubmit">内容確認</button>
@@ -61,7 +62,7 @@
                                 <td>{$data.email}</td>
                                 <td>{$data.body}</td>
                                 <td> <a href="/contacts/update?id={$data.id}" class="button" name='update'>編集</a></td>
-                                <td> <a href="/contacts/delete?id={$contact.id}" class="button" onclick="return confirm('本当に削除しますか?')">削除</a></td>
+                                <td> <a href="/contacts/delete?id={$data.id}" class="button" name='delete' onclick="return confirm('本当に削除しますか?')">削除</a></td>
                             </tr>
                         {/foreach}
                     </table>

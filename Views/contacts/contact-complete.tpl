@@ -13,6 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-6 mx-auto col-md-8">
             <div class="bg-white p-3 rounded mb-5 text-center">
+            <input type="hidden" name="csrf_token" method="csrf_token" value="{$csrf_token}">
                 <h2 class="text-center mb-5">完了</h2>
                 <h3 class="text-center mb-5">お問い合わせ内容を送信しました。</br></h3>
                 <h3 class="text-center mb-5">ありがとうございました。</br></h3>

@@ -5,6 +5,8 @@ function route($path, $httpMethod){
         list($controller, $method) = explode('/', $path);
         $case = [$method, $httpMethod];
         
+        // 確認用
+
         // var_dump($controller);
         // var_dump($method);
         // var_dump($case);
@@ -92,6 +94,12 @@ function route($path, $httpMethod){
                         case ['update','post'];
                             $methodName = 'update';
                             break;   
+                        // case ['delete','post'];
+                        //     $methodName = 'delete';
+                        //     break;   
+                        case ['delete','get'];
+                            $methodName = 'delete';
+                            break;  
                         default:
                             $controllerName = '';
                             $methodName = '';
@@ -107,6 +115,8 @@ function route($path, $httpMethod){
                 $methodName = '';
         }
         
+        // 確認用
+
         // var_dump($controllerName);
         // var_dump($methodName);
         // var_dump($controller);
