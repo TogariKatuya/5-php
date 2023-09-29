@@ -7,7 +7,7 @@ window.onload = function(){
     const inputMail = document.getElementById('inputMail');
     const inputContact = document.getElementById('inputContact');
     const reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/;
-
+    
     // console.log(inputName);
     // console.log(inputContact);    
 
@@ -50,8 +50,9 @@ window.onload = function(){
         
         if(message.length > 0){
             
-            
+            form.submit();
             alert(message);
+            
             // location.href="/contacts/contactform";  
             return;
         }else{
@@ -64,3 +65,4 @@ window.onload = function(){
         // });
     });
 };
+

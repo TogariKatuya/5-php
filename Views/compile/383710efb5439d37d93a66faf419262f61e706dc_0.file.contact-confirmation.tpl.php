@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-09-28 16:25:25
+/* Smarty version 4.3.2, created on 2023-09-29 18:21:32
   from 'C:\xampp\htdocs\mvc_app\Views\contacts\contact-confirmation.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_65152a65c2a694_21362316',
+  'unifunc' => 'content_6516971c5103e4_98376536',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '383710efb5439d37d93a66faf419262f61e706dc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contacts\\contact-confirmation.tpl',
-      1 => 1695885922,
+      1 => 1695979287,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65152a65c2a694_21362316 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6516971c5103e4_98376536 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -34,11 +34,11 @@ function content_65152a65c2a694_21362316 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 <div class="main">
-    <form method='POST'">
+    
         <div class="container-field" >
                 <div class="form-wrapper">
                     <h1>お問い合わせ内容</h1>
-                    <table>
+                    <form action="/contacts/contact-complete"method='POST' >
                         <div class="element_wrap">
                             <label>氏名</label>
                             <input type="text" class="form-control" name="name" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['post']->value['name'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
@@ -65,11 +65,11 @@ function content_65152a65c2a694_21362316 (Smarty_Internal_Template $_smarty_tpl)
 "readonly>
                         </div>
                         <p> <class="label-text">上記の内容でよろしいですか。</p>   
-                        <input type="submit" name="btn_back" action="/contacts/contactform" value="キャンセル">
-                        <input type="submit" name="btn_submit" action="/contacts/contact-complete" value="送信">
-                    </table>
+                        <input class="btn" type="button" onclick="history.back(-1)" value='キャンセル'>                   
+                        <input type="submit" name="btn_submit"  value="送信">
+                    </form>
                 </div>
         </div>
-    </form>
+    
 </body><?php }
 }

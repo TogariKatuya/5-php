@@ -11,11 +11,11 @@
 
 <body>
 <div class="main">
-    <form method='POST'">
+    
         <div class="container-field" >
                 <div class="form-wrapper">
                     <h1>お問い合わせ内容</h1>
-                    <table>
+                    <form action="/contacts/contact-complete"method='POST' >
                         <div class="element_wrap">
                             <label>氏名</label>
                             <input type="text" class="form-control" name="name" value="{$post['name']|default:''}"readonly>
@@ -37,10 +37,10 @@
                             <input type="text" class="form-control" name="text" value="{$post['text']|default:''}"readonly>
                         </div>
                         <p> <class="label-text">上記の内容でよろしいですか。</p>   
-                        <input type="submit" name="btn_back" action="/contacts/contactform" value="キャンセル">
-                        <input type="submit" name="btn_submit" action="/contacts/contact-complete" value="送信">
-                    </table>
+                        <input class="btn" type="button" onclick="history.back(-1)" value='キャンセル'>                   
+                        <input type="submit" name="btn_submit"  value="送信">
+                    </form>
                 </div>
         </div>
-    </form>
+    
 </body>

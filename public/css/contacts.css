@@ -26,7 +26,7 @@ table{
 }
 
 table th{
-  background-image: linear-gradient(40deg, #eeff03 0%, #818181 74%);
+  background-image: linear-gradient(40deg, #eeff03 0%, #adadad 74%);
 }
 
 table td:last-child *{

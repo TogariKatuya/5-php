@@ -19,22 +19,22 @@
                     <div class="form-group">
                         <label for="name">名前</label>
                         <input type="text" class="form-control" name="name" id="inputName" placeholder="テスト太郎" value="{$rowData->name}">
-                        <p class="error-text">{$errorMessages['name']|default:''}</p>
+                        <p class="error-text">{$errors['name']|default:''}</p>
                     </div>
                     <div class="form-group">
                         <label for="kana">フリガナ</label>
                         <input type="text" class="form-control" name="kana" id="inputKana" placeholder="テストタロウ" value="{$rowData->kana}">
-                        <p class="error-text">{$errorMessages['kana']|default:''}</p>
+                        <p class="error-text">{$errors['kana']|default:''}</p>
                     </div>
                     <div class="form-group">
                         <label for="email">メールアドレス</label>
                         <input type="email" class="form-control" name="email" id="inputMail" placeholder="exemple@cin-group.co.jp" value="{$rowData->email}">
-                        <p class="error-text">{$errorMessages['email']|default:''}</p>
+                        <p class="error-text">{$errors['email']|default:''}</p>
                     </div>
                     <div class="form-group">
                         <label for="tel">電話番号</label>
                         <input type="tel" class="form-control" name="tel" id="inputTel" placeholder="00000000000" value="{$rowData->tel}">
-                        <p class="error-text">{$errorMessages['tel']|default:''}</p>
+                        <p class="error-text">{$errors['tel']|default:''}</p>
                     </div>
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="id" id="inputId" placeholder="00000000000" value="{$rowData->id}">
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="text">お問い合わせ内容</label>
                         <input class="form-control" name="text" id="inputContact"  placeholder="お問い合わせ" value="{$rowData->body}">
-                        <p class="error-text">{$errorMessages['text']|default:''}</p>
+                        <p class="error-text">{$errors['text']|default:''}</p>
                     </div>
                     <p> <class="label-text">上記の内容でよろしいですか。</p>  
                     <a type="submit" name="btn_back" href="/contacts/contactform" value="キャンセル">キャンセル</a>  

@@ -56,10 +56,7 @@ function route($path, $httpMethod){
                         break;
                     case ['create', 'post']:
                         $methodName = 'create';
-                        break;
-                    case ['contactform','get'];
-                        $methodName = 'contactform';
-                        break;                
+                        break;             
                 }
                 break;
 
@@ -71,22 +68,13 @@ function route($path, $httpMethod){
                             $methodName = 'contactform';
                             break;
                         case ['contactform','post'];
-                            $methodName = 'contactform';
-                            break;
-                        case ['contact-confirmation', 'post']:
-                            $methodName = 'confirmation';  
-                            break;
-                        case ['contact-confirmation', 'get']:
-                            $methodName = 'confirmation';  
+                            $methodName = 'contactformvalidation';
                             break;
                         case ['contact-complete','post'];
-                            $methodName = 'Complete';
+                            $methodName = 'complete';
                             break;
                         case ['contact-complete','get'];
-                            $methodName = 'Complete';
-                            break;
-                        case ['contactform','post'];
-                            $methodName = 'contactform';
+                            $methodName = 'complete';
                             break;
                         case ['update','get'];
                             $methodName = 'update';
@@ -103,6 +91,9 @@ function route($path, $httpMethod){
                         case ['delete','get'];
                             $methodName = 'delete';
                             break;  
+                        // case ['contactbackform','post'];
+                        //     $methodName = 'contactbackform';
+                        //     break;
                         default:
                             $controllerName = '';
                             $methodName = '';
