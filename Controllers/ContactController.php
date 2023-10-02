@@ -109,7 +109,7 @@ class ContactController extends Controller
             $Data = $_SESSION;
             
                     //登録処理
-                    echo(8);
+                    // echo(8);
                     $Contact = new Contact;
                     $result = $Contact->create(
                         $Data['name'],
